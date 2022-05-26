@@ -117,8 +117,8 @@ async function getHelpMenu({ client, guild }) {
   // Buttons Row
   let components = [];
   components.push(
-    new MessageButton().setCustomId("previousBtn").setEmoji("<:gauche:957812033540223006>").setStyle("SECONDARY").setDisabled(true),
-    new MessageButton().setCustomId("nextBtn").setEmoji("<:droite:957812122820157540>").setStyle("SECONDARY").setDisabled(true)
+    new MessageButton().setCustomId("previousBtn").setEmoji("<:fleche_gauche:963278007357812757>").setStyle("SECONDARY").setDisabled(true),
+    new MessageButton().setCustomId("nextBtn").setEmoji("<:fleche_droite:963277938827100210>").setStyle("SECONDARY").setDisabled(true)
   );
 	if (SUPPORT_SERVER) {
     components.push(new MessageButton().setLabel("Straw Café ᯤ").setURL(SUPPORT_SERVER).setStyle("LINK"));
@@ -128,12 +128,12 @@ async function getHelpMenu({ client, guild }) {
 
   const embed = new MessageEmbed()
     .setColor(EMBED_COLORS.BOT_EMBED)
-    .setThumbnail("https://media.discordapp.net/attachments/945915643058847744/958647448870481940/istockphoto-1222667193-612x612.jpg")
-    .setDescription("**À propos de moi:**\n" +
-        `> Je suis Shibot, un bot multifonction pour aider sur votre serveur !\n` +
+    .setImage("")
+    .setDescription("<:loupe:963263165632741457> **À propos de moi:**\n" +
+        `<:flechebas:975429499254632468>\n> Je suis Straw, un bot multifonction pour aider sur votre serveur !\n` +
         "> Je suis en maintenance certains de mes commandes ne sont pas 100% fonctionnel.\n\n" +
-        `<:point:957832841528479764>**Invite Moi:** [Aller clique](${client.getInvite()})\n` +
-        `<:point:957832841528479764>**Serveur d'Assistance:** [Straw Café](${SUPPORT_SERVER})`
+        `<:flame2:963276599137013800> **Invite Moi:** [Aller clique](${client.getInvite()})\n` +
+        `<:fly:963276657387536386> **Serveur d'Assistance:** [Straw Café](${SUPPORT_SERVER})`
     );
 
   return {
@@ -212,7 +212,7 @@ function getSlashCategoryEmbeds(client, category) {
   if (category === "IMAGE") {
     client.slashCommands
       .filter((cmd) => cmd.category === category)
-      .forEach((cmd) => (collector += `\`/${cmd.name}\`\n <:point:955639055511601152> ${cmd.description}\n\n`));
+      .forEach((cmd) => (collector += `\`/${cmd.name}\`\n <:bouttonon:963264424473419837> ${cmd.description}\n\n`));
 
     const availableFilters = client.slashCommands
       .get("filter")
@@ -260,8 +260,8 @@ function getSlashCategoryEmbeds(client, category) {
       const subCmdsString = subCmds.map((s) => s.name).join(", ");
 
       return `\`/${cmd.name}\`\n 
-<:point:957832841528479764> **Description**: ${cmd.description}\n ${
-        subCmds == 0 ? "" : `<:point:957832841528479764> **SubCommands [${subCmds.length}]**: ${subCmdsString}\n`
+<:bouttonon:963264424473419837> **Description**: ${cmd.description}\n ${
+        subCmds == 0 ? "" : `<:bouttonon:963264424473419837> **SubCommands [${subCmds.length}]**: ${subCmdsString}\n`
       } `;
     });
 
@@ -301,11 +301,11 @@ function getMsgCategoryEmbeds(client, category, prefix) {
       );
 
     collector +=
-      "\n\nYou can use these image commands in following formats\n" +
-      `**${prefix}cmd:** Picks message authors avatar as image\n` +
-      `**${prefix}cmd <@member>:** Picks mentioned members avatar as image\n` +
-      `**${prefix}cmd <url>:** Picks image from provided URL\n` +
-      `**${prefix}cmd [attachment]:** Picks attachment image`;
+      "\n\nVous pouvez utiliser ces commandes d'image dans les formats suivants\n" +
+      `**${prefix}cmd:** Sélectionne l'avatar des auteurs du message comme image\n` +
+      `**${prefix}cmd <@membre>:** Sélectionne l'avatar des membres mentionnés comme image\n` +
+      `**${prefix}cmd <url>:** Sélectionne l'image à partir de l'URL fournie\n` +
+      `**${prefix}cmd [image]:** Sélectionne l'image de la pièce jointe`;
 
     const embed = new MessageEmbed()
       .setColor(EMBED_COLORS.BOT_EMBED)
@@ -334,7 +334,7 @@ function getMsgCategoryEmbeds(client, category, prefix) {
 
   while (commands.length) {
     let toAdd = commands.splice(0, commands.length > CMDS_PER_PAGE ? CMDS_PER_PAGE : commands.length);
-    toAdd = toAdd.map((cmd) => `<:point:957832841528479764>\`${prefix}${cmd.name}\`\n <:fleche:957833457436860426> ${cmd.description}\n`);
+    toAdd = toAdd.map((cmd) => `<:bouttonon:963264424473419837>\`${prefix}${cmd.name}\`\n <:fleche:963265299992444998> ${cmd.description}\n`);
     arrSplitted.push(toAdd);
   }
 
