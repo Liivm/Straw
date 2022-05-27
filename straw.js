@@ -1,9 +1,8 @@
 require("dotenv").config();
 require("module-alias/register");
-const express = require('express');
-const app = express();
-let port = process.env.PORT || 8080;
-
+//const express = require('express');
+//const app = express();
+//let port = process.env.PORT || 8080;
 const path = require("path");
 const { initializeMongoose } = require("@src/database/mongoose");
 const { BotClient } = require("@src/structures");
@@ -36,7 +35,15 @@ process.on("unhandledRejection", (err) => client.logger.error(`Unhandled excepti
   await client.login(process.env.BOT_TOKEN);
 })();
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
-});
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => res.send('Hello World!'));
+
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//    console.log(`Our app is running on port ${ PORT }`);
+// });

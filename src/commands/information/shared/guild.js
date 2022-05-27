@@ -29,18 +29,20 @@ module.exports = async (guild) => {
     return members.filter((m) => m.roles.cache.has(role.id)).size;
   };
 
-  const rolesString = roles.cache
+  let rolesString = roles.cache
     .filter((r) => !r.name.includes("everyone"))
     .map((r) => `${r.name}[${getMembersInRole(memberCache, r)}]`)
     .join(", ");
 
+  if (rolesString.length > 1024) rolesString = rolesString.substring(0, 1020) + "...";
+
   let { verificationLevel } = guild;
   switch (guild.verificationLevel) {
-    case "CITADELLE":
+    case "VERY_HIGH":
       verificationLevel = "┻�?┻ミヽ(ಠ益ಠ)ノ彡┻�?┻";
       break;
 
-    case "MOYEN":
+    case "HIGH":
       verificationLevel = "(╯°□°）╯︵ ┻�?┻";
       break;
 
@@ -49,10 +51,10 @@ module.exports = async (guild) => {
   }
 
   let desc = "";
-  desc = `${desc + "<:point:955639055511601152>"} **ID:** ${id}\n`;
-  desc = `${desc + "<:point:955639055511601152>"} **Nom:** ${name}\n`;
-  desc = `${desc + "<:point:955639055511601152>"} **Propriétaire:** ${owner.user.tag}\n`;
-  desc = `${desc + "<:point:955639055511601152>"} **Region:** ${preferredLocale}\n`;
+  desc = `${desc + "❯"} **ID :** ${id}\n`;
+  desc = `${desc + "❯"} **Nom :** ${name}\n`;
+  desc = `${desc + "❯"} **Propriétaire :** ${owner.user.tag}\n`;
+  desc = `${desc + "❯"} **Région :** ${preferredLocale}\n`;
   desc += "\n";
 
   const embed = new MessageEmbed()
@@ -60,18 +62,21 @@ module.exports = async (guild) => {
     .setThumbnail(guild.iconURL())
     .setColor(EMBED_COLORS.BOT_EMBED)
     .setDescription(desc)
-    .addField(`<:point:955639055511601152>Membres Total [${all}]`, `\`\`\`Membres: ${users}\nBots: ${bots}\`\`\``, true)
-    .addField(`<:point:955639055511601152>En Ligne [${onlineAll}]`, `\`\`\`Membres: ${onlineUsers}\nBots: ${onlineBots}\`\`\``, true)
+    .addField(`Membres du serveur  [${all}]`, `\`\`\`Membres : ${users}\nRobots : ${bots}\`\`\``, true)
+    .addField(`Statistiques en ligne  [${onlineAll}]`, `\`\`\`Membres : ${onlineUsers}\nRobots : ${onlineBots}\`\`\``, true)
     .addField(
-      `Categories et Salons [${totalChannels}]`,
-      `\`\`\`Categories: ${categories}\nTextuel: ${textChannels}\nVocale: ${voiceChannels}\nFil: ${threadChannels}\`\`\``,
+      `Catégories et salons [${totalChannels}]`,
+      `\`\`\`Categories : ${categories} | Textuel: ${textChannels} | Vocale : ${voiceChannels} | Fil de discussion: ${threadChannels}\`\`\``,
       false
     )
-    .addField("<:point:955639055511601152>Verification", `\`\`\`${verificationLevel}\`\`\``, true)
-    .addField("<:point:955639055511601152>Boosts", `\`\`\`${guild.premiumSubscriptionCount}\`\`\``, true)
-   // .addField(
-    //  `Server Created `\${guild.createdAt.toUTCString().substr(0, 16)} (${checkDays(guild.createdAt)}), false
- //   );
+    .addField(`Roles [${rolesCount}]`, `\`\`\`${rolesString}\`\`\``, false)
+    .addField("Verification", `\`\`\`${verificationLevel}\`\`\``, true)
+    .addField("Boosts", `\`\`\`${guild.premiumSubscriptionCount}\`\`\``, true)
+    .addField(
+      `Serveur créé  [${createdAt.fromNow()}]`,
+      `\`\`\`${createdAt.format("dddd, Do MMMM YYYY")}\`\`\``,
+      false
+    );
 
   if (guild.splashURL) embed.setImage(guild.splashURL);
 
