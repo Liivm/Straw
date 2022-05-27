@@ -260,8 +260,8 @@ function getSlashCategoryEmbeds(client, category) {
       const subCmdsString = subCmds.map((s) => s.name).join(", ");
 
       return `\`/${cmd.name}\`\n 
-<:bouttonon:963264424473419837> **Description**: ${cmd.description}\n ${
-        subCmds == 0 ? "" : `<:bouttonon:963264424473419837> **SubCommands [${subCmds.length}]**: ${subCmdsString}\n`
+<:play:979596600202657852> **Description**: ${cmd.description}\n ${
+        subCmds == 0 ? "" : `<:info:979596536994476142> **SubCommands [${subCmds.length}]**: ${subCmdsString}\n`
       } `;
     });
 
@@ -334,7 +334,7 @@ function getMsgCategoryEmbeds(client, category, prefix) {
 
   while (commands.length) {
     let toAdd = commands.splice(0, commands.length > CMDS_PER_PAGE ? CMDS_PER_PAGE : commands.length);
-    toAdd = toAdd.map((cmd) => `<:bouttonon:963264424473419837>\`${prefix}${cmd.name}\`\n <:fleche:963265299992444998> ${cmd.description}\n`);
+    toAdd = toAdd.map((cmd) => `<:play:979596600202657852>\`${prefix}${cmd.name}\`\n <:info:979596536994476142> ${cmd.description}\n`);
     arrSplitted.push(toAdd);
   }
 
