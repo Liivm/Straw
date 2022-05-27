@@ -10,8 +10,8 @@ module.exports = {
   },
   DASHBOARD: {
     enabled: true,
-    baseURL: "https://strawcafe.herokuapp.com:8080",
-    failureURL: "https://strawcafe.herokuapp.com:8080",
+    baseURL: "https://strawbot-production.up.railway.app:8080",
+    failureURL: "https://strawbot-production.up.railway.app:8080",
     port: "8080",
   },
   INTERACTIONS: {
