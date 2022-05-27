@@ -10,7 +10,7 @@ const {
 } = require("discord.js");
 
 const CMDS_PER_PAGE = 5;
-const IDLE_TIMEOUT = 30;
+const IDLE_TIMEOUT = 20;
 const cache = {};
 
 module.exports = class HelpCommand extends Command {
