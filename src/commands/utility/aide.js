@@ -9,8 +9,8 @@ const {
   CommandInteraction,
 } = require("discord.js");
 
-const CMDS_PER_PAGE = 5;
-const IDLE_TIMEOUT = 20;
+const CMDS_PER_PAGE = 4;
+const IDLE_TIMEOUT = 10;
 const cache = {};
 
 module.exports = class HelpCommand extends Command {
@@ -243,7 +243,7 @@ function getSlashCategoryEmbeds(client, category) {
     const embed = new MessageEmbed()
       .setColor(EMBED_COLORS.BOT_EMBED)
       .setThumbnail(CommandCategory[category]?.image)
-      .setAuthor({ name: `${category} Commandes` })
+      .setAuthor({ nom: `${category} Commandes` })
       .setDescription("Circuler y'as rien à voir");
 
     return [embed];
@@ -259,9 +259,8 @@ function getSlashCategoryEmbeds(client, category) {
       const subCmds = cmd.slashCommand.options.filter((opt) => opt.type === "SUB_COMMAND");
       const subCmdsString = subCmds.map((s) => s.name).join(", ");
 
-      return `\`/${cmd.name}\`\n 
-<:play:979596600202657852> **Description**: ${cmd.description}\n ${
-        subCmds == 0 ? "" : `<:info:979596536994476142> **SubCommands [${subCmds.length}]**: ${subCmdsString}\n`
+      return `\`/${cmd.name}\`\n<:flechedroite:979594625922789416> **Description**: ${cmd.description}\n ${
+        subCmds == 0 ? "" : `<:flechehaute:979600574578311218> **SubCommands [${subCmds.length}]**: ${subCmdsString}\n`
       } `;
     });
 
@@ -272,7 +271,7 @@ function getSlashCategoryEmbeds(client, category) {
     const embed = new MessageEmbed()
       .setColor(EMBED_COLORS.BOT_EMBED)
       .setThumbnail(CommandCategory[category]?.image)
-      .setAuthor({ name: `${category} Commandes` })
+      .setAuthor({ nom: `${category} Commandes` })
       .setDescription(item.join("\n"))
       .setFooter({ text: `page ${index + 1} sur ${arrSplitted.length}` });
     arrEmbeds.push(embed);
@@ -334,7 +333,7 @@ function getMsgCategoryEmbeds(client, category, prefix) {
 
   while (commands.length) {
     let toAdd = commands.splice(0, commands.length > CMDS_PER_PAGE ? CMDS_PER_PAGE : commands.length);
-    toAdd = toAdd.map((cmd) => `<:play:979596600202657852>\`${prefix}${cmd.name}\`\n <:info:979596536994476142> ${cmd.description}\n`);
+    toAdd = toAdd.map((cmd) => `<:flechedroite:979594625922789416> \`${prefix}${cmd.name}\`\n<:flechehaute:979600574578311218> ${cmd.description}\n`);
     arrSplitted.push(toAdd);
   }
 
