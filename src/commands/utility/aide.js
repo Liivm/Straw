@@ -128,7 +128,7 @@ async function getHelpMenu({ client, guild }) {
 
   const embed = new MessageEmbed()
     .setColor(EMBED_COLORS.BOT_EMBED)
-    .setImage("")
+    .setThumbnail("https://media.discordapp.net/attachments/966739100298281090/979564123400589352/20220527_041907.jpg")
     .setDescription("<:loupe:963263165632741457> **À propos de moi:**\n" +
         `<:flechebas:975429499254632468>\n> Je suis Straw, un bot multifonction pour aider sur votre serveur !\n` +
         "> Je suis en maintenance certains de mes commandes ne sont pas 100% fonctionnel.\n\n" +
