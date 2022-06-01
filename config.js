@@ -59,9 +59,9 @@ module.exports = {
         secure: false,
       },
       {
-        host: "usa.lavalink.mitask.tech",
-        port: 2333,
-        password: "lvserver",
+        host: "lavalink.islantay.tk",
+        port: 8880,
+        password: "waifufufufu",
         identifier: "USA Link",
         retryDelay: 5000,
         secure: false,
