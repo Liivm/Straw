@@ -6,7 +6,7 @@ module.exports = {
     ENABLED: true,
     STATUS: "online",
     TYPE: "STREAMING",
-    MESSAGE: ".aide | En Maintenance",
+    MESSAGE: ".aide | .gg/straw",
   },
   DASHBOARD: {
     enabled: true,
@@ -51,9 +51,9 @@ module.exports = {
     MAX_SEARCH_RESULTS: 5,
     NODES: [
       {
-        host: "ger.lavalink.mitask.tech",
-        port: 2333,
-        password: "lvserver",
+        host: "lavalink.cloudblue.ml",
+        port: 1555,
+        password: "danbotbest",
         identifier: "German Link",
         retryDelay: 5000,
         secure: false,
