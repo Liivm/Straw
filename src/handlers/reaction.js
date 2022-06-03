@@ -7,7 +7,7 @@ const { sendMessage } = require("@utils/botUtils");
 const { translate } = require("@utils/httpUtils");
 const { timeformat } = require("@utils/miscUtils");
 
-const TRANSLATE_COOLDOWN = 120;
+const TRANSLATE_COOLDOWN = 10;
 
 /**
  * @param {import('discord.js').User} user
@@ -45,7 +45,7 @@ async function handleFlagReaction(countryCode, message, user) {
   // cooldown check
   const remaining = getTranslationCooldown(user);
   if (remaining > 0) {
-    return sendMessage(message.channel, `${user} You must wait ${timeformat(remaining)} before translating again!`, 5);
+    return sendMessage(message.channel, `${user} Tu doit attendre ${timeformat(remaining)} pour retraduire!`, 5);
   }
 
   if (await isTranslated(message, countryCode)) return;
@@ -61,8 +61,8 @@ async function handleFlagReaction(countryCode, message, user) {
     if (targetCodes.length === 0) return;
 
     // remove english if there are other language codes
-    if (targetCodes.length > 1 && targetCodes.includes("en")) {
-      targetCodes.splice(targetCodes.indexOf("en"), 1);
+    if (targetCodes.length > 1 && targetCodes.includes("fr")) {
+      targetCodes.splice(targetCodes.indexOf("fr"), 1);
     }
 
     let src;
@@ -81,17 +81,17 @@ async function handleFlagReaction(countryCode, message, user) {
     const btnRow = new MessageActionRow().addComponents(
       new MessageButton({
         url: message.url,
-        label: "Original Message",
+        label: "Message Original",
         style: "LINK",
       })
     );
 
     const embed = new MessageEmbed()
       .setColor(message.client.config.EMBED_COLORS.BOT_EMBED)
-      .setAuthor({ name: `Translation from ${src}` })
+      .setAuthor({ name: `Traduction de ${src}` })
       .setDescription(desc)
       .setFooter({
-        text: `Requested by ${user.tag}`,
+        text: `Demander par ${user.tag}`,
         iconURL: user.displayAvatarURL(),
       });
 
