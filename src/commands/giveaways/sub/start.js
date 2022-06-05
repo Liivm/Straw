@@ -4,9 +4,10 @@
  * @param {number} duration
  * @param {string} prize
  * @param {number} winners
- * @param {import('discord.js').User} host
+ * @param {import('discord.js').User} [host]
  */
 module.exports = async (member, giveawayChannel, duration, prize, winners, host) => {
+  if (!host) host = member.user;
   if (!member.permissions.has("MANAGE_MESSAGES")) {
     return "You need to have the manage messages permissions to start giveaways.";
   }
@@ -21,13 +22,13 @@ module.exports = async (member, giveawayChannel, duration, prize, winners, host)
       prize,
       winnerCount: winners,
       hostedBy: host,
-      thumbnail: "https://i.imgur.com/DJuTuxs.png",
+      thumbnail: "",
       messages: {
-        giveaway: "🎉 **GIVEAWAY** 🎉",
-        giveawayEnded: "🎉 **GIVEAWAY ENDED** 🎉",
-        inviteToParticipate: "React with 🎉 to enter",
-        dropMessage: "Be the first to react with 🎉 to win!",
-        hostedBy: `\nHosted by: ${host.tag}`,
+        giveaway: "**LOTTERIE**",
+        giveawayEnded: "**LOTTERIE TERMINER**",
+        inviteToParticipate: "Reagis avec 🍡 pour entrer",
+        dropMessage: "Soyez le premier à réagir avec 🍡 pour gagner!",
+        hostedBy: `\nOrganiser par: ${host.tag}`,
       },
     });
 
