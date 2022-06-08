@@ -10,8 +10,8 @@ module.exports = {
   },
   DASHBOARD: {
     enabled: true,
-    baseURL: "http://localhost:8080",
-    failureURL: "http://localhost:8080",
+    baseURL: "https://straw-production.up.railway.app/",
+    failureURL: "https://straw-production.up.railway.app/",
     port: "8080",
   },
   INTERACTIONS: {
