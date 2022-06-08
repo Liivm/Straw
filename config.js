@@ -12,7 +12,7 @@ module.exports = {
     enabled: true,
     baseURL: "https://straw-production.up.railway.app/",
     failureURL: "https://straw-production.up.railway.app/",
-    port: "8080",
+    port: "",
   },
   INTERACTIONS: {
     SLASH: false,
