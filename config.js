@@ -1,15 +1,15 @@
 module.exports = {
   OWNER_IDS: ["499447456678019072", "635889581887062076"], // Créateur du bot
   PREFIX: ".", // Prefix par defaut
-  SUPPORT_SERVER: "https://discord.gg/qsnUGDSHGt", // Serveur d'Assistance
+  SUPPORT_SERVER: "https://discord.gg/4nn9tuNUNj", // Serveur d'Assistance
   PRESENCE: {
     ENABLED: true,
     STATUS: "online",
-    TYPE: "STREAMING",
+    TYPE: "WATCHING",
     MESSAGE: ".aide | .gg/straw",
   },
   DASHBOARD: {
-    enabled: true,
+    enabled: false,
     baseURL: "https://straw-production.up.railway.app/",
     failureURL: "https://straw-production.up.railway.app/",
     port: "443",
