@@ -105,7 +105,7 @@ async function play({ member, guild, channel }, user, query) {
         .setTitle({ name: "<:music:986757625985261600> Musique ajouter a la liste" })
         .setDescription(`[${track.title}](${track.uri})`)
         .addField("<:time:986758619297099806> Durée :", "`" + prettyMs(track.duration, { colonNotation: true }) + "`", true)
-        .addField({ text: `<:message:986760400580251648> Demander par: ${track.requester.tag}` });
+        .setFooter({ text: `<:message:986760400580251648> Demander par: ${track.requester.tag}` });
 
       if (typeof track.displayThumbnail === "function") embed.setThumbnail(track.displayThumbnail("hqdefault"));
       if (player.queue.totalSize > 0) embed.addField("<:liste:986759683031310466> Position dans la liste", (player.queue.size - 0).toString(), true);
@@ -122,7 +122,7 @@ async function play({ member, guild, channel }, user, query) {
         .setDescription(res.playlist.name)
         .addField("<:music:986757625985261600> Mis en liste", `${res.tracks.length} musique`, true)
         .addField("<:time:986758619297099806> Durée de la playlist", "`" + prettyMs(res.playlist.duration, { colonNotation: true }) + "`", true)
-        .addField({ text: `<:message:986760400580251648> Demander par: ${res.tracks[0].requester.tag}` });
+        .setFooter({ text: `<:message:986760400580251648> Demander par: ${res.tracks[0].requester.tag}` });
 
       return { embeds: [embed] };
 
@@ -138,7 +138,7 @@ async function play({ member, guild, channel }, user, query) {
         .setTitle({ name: "<:music:986757625985261600> Ajouter à la liste" })
         .setDescription(`<:music:986757625985261600> [${track.title}](${track.uri})`)
         .addField("<:time:986758619297099806> Durée", "`" + prettyMs(track.duration, { colonNotation: true }) + "`", true)
-        .addField({ text: `<:message:986760400580251648> Demander par: ${track.requester.tag}` });
+        .setFooter({ text: `<:message:986760400580251648> Demander par: ${track.requester.tag}` });
 
       if (player.queue.totalSize > 0) embed.addField("<:liste:986759683031310466> Position dans la liste", (player.queue.size - 0).toString(), true);
       return { embeds: [embed] };
