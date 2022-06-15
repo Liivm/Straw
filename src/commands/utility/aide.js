@@ -117,11 +117,11 @@ async function getHelpMenu({ client, guild }) {
   // Buttons Row
   let components = [];
   components.push(
-    new MessageButton().setCustomId("previousBtn").setEmoji("<:flechegauche:979594806705672192>").setStyle("SECONDARY").setDisabled(true),
-    new MessageButton().setCustomId("nextBtn").setEmoji("<:flechedroite:979594625922789416>").setStyle("SECONDARY").setDisabled(true)
+    new MessageButton().setCustomId("previousBtn").setEmoji("<:gauche:986752950523281408>").setStyle("SECONDARY").setDisabled(true),
+    new MessageButton().setCustomId("nextBtn").setEmoji("<:droite:986752926737383585>").setStyle("SECONDARY").setDisabled(true)
   );
 	if (SUPPORT_SERVER) {
-    components.push(new MessageButton().setLabel("Straw Café ᯤ").setURL(SUPPORT_SERVER).setStyle("LINK"));
+    components.push(new MessageButton().setLabel("Straw Café").setURL(SUPPORT_SERVER).setStyle("LINK"));
   }
 
   let buttonsRow = new MessageActionRow().addComponents(components);
@@ -129,11 +129,11 @@ async function getHelpMenu({ client, guild }) {
   const embed = new MessageEmbed()
     .setColor(EMBED_COLORS.BOT_EMBED)
     .setImage("https://i.imgur.com/TelBeJ0.jpg")
-    .setDescription("<:enligne:979594201610207292> **À propos de moi:**\n" +
-        `> Je suis Straw, un bot multifonction pour aider sur votre serveur !\n` +
+    .setDescription("<:rim:986754625388548206> **À propos de moi:**\n" +
+        `> Je suis Rim, un bot multifonction pour aider sur votre serveur !\n` +
         "> Je suis en maintenance certains de mes commandes ne sont pas 100% fonctionnel.\n\n" +
-        `<:flechedroite:979594625922789416> **Invite Moi:** [Aller clique](${client.getInvite()})\n` +
-        `<:flechedroite:979594625922789416> **Serveur d'Assistance:** [Straw Café](${SUPPORT_SERVER})`
+        `<:invitation:986755803790860319> [Ajoûte moi](${client.getInvite()})\n` +
+        `<:discord:986753119952175135> [Assistance](${SUPPORT_SERVER})`
     );
 
   return {
