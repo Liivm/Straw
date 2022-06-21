@@ -58,13 +58,13 @@ async function getInvites({ guild }, user, settings) {
   const inviteData = (await getMember(guild.id, user.id)).invite_data;
 
   const embed = new MessageEmbed()
-    .setAuthor({ name: `Invitations pour ${user.username}` })
+    .setAuthor({ name: `Invitations de ${user.username}` })
     .setColor(EMBED_COLORS.BOT_EMBED)
     .setThumbnail(user.displayAvatarURL())
     .setDescription(`${user.toString()} as ${getEffectiveInvites(inviteData)} invites`)
-    .addField("<:stats:963567717611339897> Invitations", `**${inviteData?.tracked + inviteData?.added || 0}**`, true)
-    .addField("<:stats:963567717611339897> Faux Invites", `**${inviteData?.fake || 0}**`, true)
-    .addField("<:stats:963567717611339897> Membres Partis", `**${inviteData?.left || 0}**`, true);
+    .addField("> Invitations", `> **${inviteData?.tracked + inviteData?.added || 0}**`, true)
+    .addField("> Faux Invites", `> **${inviteData?.fake || 0}**`, true)
+    .addField("> Membres Partis", `> **${inviteData?.left || 0}**`, true);
 
   return { embeds: [embed] };
 }

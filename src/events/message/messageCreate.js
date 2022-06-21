@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
   // check for bot mentions
   if (message.content.includes(`${client.user.id}`)) {
     sendMessage(message.channel, `Aide : \`${settings.prefix}aide\`
-Serveur d'Assistance : https://discord.gg/4nn9tuNUNj`);
+Serveur d'Assistance : https://discord.gg/JraUP383VN`);
   }
 
   let isCommand = false;

@@ -67,10 +67,10 @@ async function logModeration(issuer, target, reason, type, data = {}) {
     case "PURGE":
       embed
         .setAuthor({ name: `Cas de Modération - ${type}` })
-        .addField("<:fleche:963265299992444998> Issue par", `<:fleche:963265299992444998> <@${issuer.id}>`, false)
-        .addField("<:fleche:963265299992444998> Type de purge", data.purgeType, true)
-        .addField("<:fleche:963265299992444998> Messages", data.deletedCount.toString(), true)
-        .addField("<:fleche:963265299992444998> Salon", `<:fleche:963265299992444998> <#${data.channel.id}>`, false);
+        .addField("Issue par", `<@${issuer.id}>`, false)
+        .addField("Type de purge", data.purgeType, true)
+        .addField("Messages", data.deletedCount.toString(), true)
+        .addField("Salon", `<#${data.channel.id}>`, false);
       break;
 
     case "TIMEOUT":
@@ -122,15 +122,15 @@ async function logModeration(issuer, target, reason, type, data = {}) {
     embed
       .setAuthor({ name: `Cas de Modération - ${type}` })
       .setThumbnail(target.user.displayAvatarURL())
-      .addField("<:fleche:963265299992444998> Issue par", `<:fleche:963265299992444998> <@${issuer.id}>`, false)
-      .addField("<:fleche:963265299992444998> Membre", `<:fleche:963265299992444998> <@${target.id}>`, false)
-      .addField("<:fleche:963265299992444998> Raison", reason || "<:fleche:963265299992444998> Aucune raison", true)
+      .addField("Issue par", `<@${issuer.id}>`, false)
+      .addField("Membre", `<@${target.id}>`, false)
+      .addField("Raison", reason || "Aucune raison", true)
       .setTimestamp(Date.now());
 
     if (type.toUpperCase() === "TIMEOUT") {
-      embed.addField("<:fleche:963265299992444998> Expires", `<:fleche:963265299992444998> <t:${Math.round(target.communicationDisabledUntilTimestamp / 1000)}:R>`, true);
+      embed.addField("Expires", `<t:${Math.round(target.communicationDisabledUntilTimestamp / 1000)}:R>`, true);
     }
-    if (type.toUpperCase() === "MOVE") embed.addField("<:fleche:963265299992444998> Deplacer dans", data.channel.name, true);
+    if (type.toUpperCase() === "MOVE") embed.addField("Deplacer dans", data.channel.name, true);
   }
 
   await addModLogToDb(issuer, target, reason, type.toUpperCase());

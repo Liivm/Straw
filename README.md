@@ -1,5 +1,3 @@
-![Straw](https://i.imgur.com/BWpKtsq.jpg)
-
 # 🍵ㆍPresentation
 * Straw est un bot francophone créer pour vous aider sur votre serveur, un gentil bot qui aime aider
 

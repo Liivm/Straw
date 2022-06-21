@@ -23,6 +23,7 @@ module.exports = class HelpCommand extends Command {
       command: {
         enabled: true,
         usage: "[commande]",
+        aliases: ["help", "h", "straw"],
       },
       slashCommand: {
         enabled: true,
