@@ -1,12 +1,12 @@
 module.exports = {
   OWNER_IDS: ["499447456678019072", "635889581887062076"], // Créateur du bot
-  PREFIX: "#", // Prefix par defaut
+  PREFIX: "*", // Prefix par defaut
   SUPPORT_SERVER: "https://discord.gg/4nn9tuNUNj", // Serveur d'Assistance
   PRESENCE: {
     ENABLED: true,
-    STATUS: "online",
+    STATUS: "dnd",
     TYPE: "WATCHING",
-    MESSAGE: ".helm | .invite",
+    MESSAGE: "*help | *invite",
   },
   DASHBOARD: {
     enabled: false,
